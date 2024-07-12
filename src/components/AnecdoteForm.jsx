@@ -1,10 +1,9 @@
 import { createAnecdote } from '../reducers/anecdoteReducer'
-import { useDispatch, useSelector } from 'react-redux'
-import { setDisplayed, setNotification } from '../reducers/notificationReducer'
+import { useDispatch } from 'react-redux'
+import { setNotification } from '../reducers/notificationReducer'
 
 const AnecdoteForm = () => {
     const dispatch = useDispatch()
-    const displayed = useSelector(state => state.notification.displayed)
 
     const add = async (e) => {
         e.preventDefault()
@@ -12,17 +11,8 @@ const AnecdoteForm = () => {
         e.target.name.value = ''
 
         dispatch(createAnecdote(content))
-
-        if (!displayed) {
-            dispatch(setDisplayed(true))
-            dispatch(setNotification(`you created "${content}"`))
-            setTimeout(() => {
-                dispatch(setNotification(''))
-                dispatch(setDisplayed(false))
-            }, 5000);
-        }
+        dispatch(setNotification(`you created '${content}'`, 3))
     }
-
 
     return (
         <div>
