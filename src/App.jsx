@@ -5,9 +5,7 @@ const App = () => {
   const dispatch = useDispatch()  
   const anectodes = useSelector(state => state)
 
-  const vote = (id) => {
-    dispatch(voteAnecdote(id))
-  }
+  const vote = (id) => dispatch(voteAnecdote(id))
 
   const add = (e) => {
     e.preventDefault()
