@@ -11,11 +11,13 @@ const AnecdoteList = () => {
 
   })
 
+  console.log(anectodes)
+
   const vote = (id) => dispatch(voteAnecdote(id))
     
     return(
         <div>
-             {anectodes.sort((a,b) => a.votes < b.votes).map(anecdote =>
+             {[...anectodes].sort((a,b) => a.votes < b.votes).map(anecdote =>
         <div key={anecdote.id}>
           <div>
             {anecdote.content}

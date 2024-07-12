@@ -1,4 +1,4 @@
-import { addAnecdote } from '../reducers/anecdoteReducer'
+import { createAnecdote } from '../reducers/anecdoteReducer'
 import { useDispatch } from 'react-redux'
 
 const AnecdoteForm = () => {
@@ -9,7 +9,7 @@ const AnecdoteForm = () => {
         const content = e.target.name.value
         e.target.name.value = ''
 
-        dispatch(addAnecdote(content))
+        dispatch(createAnecdote(content))
     }
     
 
